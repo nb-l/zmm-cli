@@ -15,7 +15,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const downloadLocal = exports.downloadLocal = async (templateName, projectName) => {
     let config = await (0, _rc.getAll)();
-    let api = `${config.registry}/${templateName}`;
+    let api = `${config.registry}/${config[templateName]}`;
+    console.log(api);
     return new Promise((resolve, reject) => {
         (0, _downloadGitRepo2.default)(api, projectName, err => {
             if (err) {
